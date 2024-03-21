@@ -55,7 +55,6 @@ export default function verifyToken(req, res, next) {
     } else {
       req.user = decoded; // Store decoded user information in request object
     }
-
     next(); // Proceed to the next middleware or route handler
   });
 }
@@ -99,7 +98,7 @@ app.post("/register", async (req, res) => {
     res.status(400).json({ message: "Error executing sql query" });
   }
 });
-app.options("/register", cors());
+// app.options("/register", cors());
 
 // Login endpoint
 app.post("/login", async (req, res) => {
