@@ -56,6 +56,7 @@ export default function verifyToken(req, res, next) {
 // Registration endpoint
 app.post("/register", async (req, res) => {
   const { username, password, fullname } = req.body;
+  username = username.trim();
 
   try {
     // Check if username already exists
@@ -153,7 +154,7 @@ app.post("/addNote", verifyToken, async (req, res) => {
       // Send success response with the ID of the added note
       res.status(200).json({ addedNoteId: addedNote.rows[0].id });
     } catch {
-       // Send error response if there's an error adding the note to the database
+      // Send error response if there's an error adding the note to the database
       res.status(400).json("Error adding note in database");
     }
   } else {
