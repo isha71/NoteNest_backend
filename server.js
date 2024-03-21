@@ -62,7 +62,6 @@ export default function verifyToken(req, res, next) {
 // Registration endpoint
 app.post("/register", async (req, res) => {
   const { username, password, fullname } = req.body;
-  username = username.trim();
 
   try {
     // Check if username already exists
@@ -82,7 +81,7 @@ app.post("/register", async (req, res) => {
             // Insert new user into the database
             await db.query(
               "INSERT INTO users (username, password, fullname) VALUES ($1, $2, $3)",
-              [username, hash, fullname]
+              [username.trim(), hash, fullname]
             );
             res.status(200).json({
               message:
