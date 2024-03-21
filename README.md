@@ -42,35 +42,36 @@ NoteNest is a web application that allows users to securely manage their notes. 
 #### Prerequisites
 
 - Node.js installed on your machine
-- PostgreSQL installed and running locally or accessible via a URL
+- PostgreSQL installed and running locally or accessible via a URL.
 
 ### Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/NoteNest.git
+   git clone https://github.com/isha71/NoteNest_backend.git
    ```
-2. Navigate to the project directory:
-   ```bash
-   cd NoteNest
-   ```
-3. Install dependencies:
+2. Install dependencies:
    ```bash
    npm install
    ```
 
 ### Usage
 
-1. Start the backend server:
+1. Ensure your PostgreSQL server is running. 
+2. Create .env file in backend directory and write down your database credentials and JWT secret token.
+   To run this project, you will need to add the following environment variables to your .env file
    ```bash
-   npm start
+   `PG_USER` = ""
+   `PG_HOST` = ""
+   `PG_DATABASE` = ""
+   `PG_PASSWORD` = ""
+   `PG_PORT` = ""
+   `JWT_SECRET_TOKEN` = ""
    ```
-2. Start the frontend server:
+3.  Start the backend server:
    ```bash
-   cd frontend
-   npm start
+   nodemon server.js
    ```
-3. Open your web browser and visit http://localhost:3000 to use the NoteNest application.
 
 ### API Endpoints
 
