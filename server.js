@@ -19,6 +19,16 @@ const saltRounds = 10;
 // Secret key for JWT
 const secretKey = process.env.JWT_SECRET_TOKEN;
 
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://notenest-frontend-1.onrender.com"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
+
 // Connect to PostgreSQL database
 const db = new pg.Client({
   user: process.env.PG_USER,
