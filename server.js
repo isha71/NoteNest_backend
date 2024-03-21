@@ -123,12 +123,12 @@ app.post("/login", async (req, res) => {
           });
         } else {
           // Send error response if passwords don't match
-          res.status(400).json({ message: "Incorrect password" });
+          res.status(401).json({ message: "Incorrect password" });
         }
       });
     } else {
       // Send error response if user not found
-      res.status(400).json({ message: "User not found" });
+      res.status(404).json({ message: "User not found" });
     }
   } catch (err) {
     // Send error response if there's an error executing the database query
