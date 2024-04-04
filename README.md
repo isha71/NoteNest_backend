@@ -69,22 +69,22 @@ NoteNest is a web application that allows users to securely manage their notes. 
    `JWT_SECRET_TOKEN` = ""
    ```
 
-   3. You need to set up the necessary tables in    your PostgreSQL database. Below are the SQL queries to create the required tables:
+3. You need to set up the necessary tables in    your PostgreSQL database. Below are the SQL queries to create the required tables:
    ```bash
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    fullname VARCHAR(255),
-    username VARCHAR(255) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE users_notes (
-    id SERIAL PRIMARY KEY,
-    user_id INTEGER NOT NULL REFERENCES users(id),
-    note_title VARCHAR(255),
-    note_content VARCHAR(255)
-);
-```
+   CREATE TABLE users (
+       id SERIAL PRIMARY KEY,
+       fullname VARCHAR(255),
+       username VARCHAR(255) NOT NULL UNIQUE,
+       password VARCHAR(255) NOT NULL
+   );
+   CREATE TABLE users_notes (
+       id SERIAL PRIMARY KEY,
+       user_id INTEGER NOT NULL REFERENCES users(id),
+       note_title VARCHAR(255),
+       note_content VARCHAR(255)
+   );
+   ```
+   
 4.  Start the backend server:
    ```bash
    nodemon server.js
